@@ -2,6 +2,20 @@
 Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
+
+def single_number(arr):
+    # Your code here
+    dupes = {}
+    for i in range(len(arr)):
+        if dupes.get(arr[i], "empty") == "empty":
+            dupes[arr[i]] = 1
+        else:
+            dupes[arr[i]] += 1
+    for i in range(len(arr)):
+        if dupes.get(arr[i]) == 1:
+            return arr[i]
+
+"""
 def single_number(arr):
     # Your code here
     dupes = []
@@ -17,6 +31,7 @@ def single_number(arr):
                 sentinel = True
         if sentinel == False:
             return arr[i]
+"""
 
 if __name__ == '__main__':
     # Use the main function to test your implementation
