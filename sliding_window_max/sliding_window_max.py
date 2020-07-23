@@ -4,9 +4,21 @@ Returns: a List of integers
 '''
 def sliding_window_max(nums, k):
     # Your code here
-
-    pass
-
+    window = [None]*k
+    sub = []
+    start = 0
+    end = k
+    max = None
+    while window != nums[len(nums)-k:]:
+        window = nums[start:end]
+        max = window[0]
+        for i in range(1, len(window)):
+            if window[i] > max:
+                max = window[i]
+        sub.append(max)
+        start += 1
+        end += 1
+    return sub
 
 if __name__ == '__main__':
     # Use the main function here to test out your implementation 
